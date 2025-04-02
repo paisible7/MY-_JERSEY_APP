@@ -35,14 +35,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
-  # Firebase
-  firebase_core: ^3.13.0
-  cloud_firestore: ^5.6.6
-  firebase_auth: ^5.5.2
-  firebase_storage: ^12.4.5
-  firebase_messaging: ^15.2.5
-
-
   # State Management (Choisir 1)
   provider: ^6.1.1           # OU
   flutter_bloc: ^9.1.0       # Pour une logique complexe
@@ -70,6 +62,9 @@ dependencies:
   # Autres
   intl: ^0.20.2              # Formatage des dates
   shared_preferences: ^2.2.2 # Stockage local simple
+
+  # Supabase
+  supabase_flutter: ^2.8.4
 
 
 
