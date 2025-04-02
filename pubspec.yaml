@@ -35,6 +35,44 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
+  # Firebase
+  firebase_core: ^3.13.0
+  cloud_firestore: ^5.6.6
+  firebase_auth: ^5.5.2
+  firebase_storage: ^12.4.5
+  firebase_messaging: ^15.2.5
+
+
+  # State Management (Choisir 1)
+  provider: ^6.1.1           # OU
+  flutter_bloc: ^9.1.0       # Pour une logique complexe
+
+  # UI & Responsive
+  responsive_framework: ^1.0.0
+  flutter_svg: ^2.0.7
+  cached_network_image: ^3.3.0
+
+  # Personnalisation
+  image_editor: ^1.3.0       # Pour le flocage
+  google_fonts: ^6.2.1       # Polices dynamiques
+
+  # Hors Ligne
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  connectivity_plus: ^6.1.3
+
+  # Paiements
+  flutter_stripe: ^11.4.0     # Stripe
+
+  # Chat
+  uuid: ^4.5.1               # Génération d'ID unique
+
+  # Autres
+  intl: ^0.20.2              # Formatage des dates
+  shared_preferences: ^2.2.2 # Stockage local simple
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
