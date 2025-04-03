@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:myjersey/presentation/screens/product_detail_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../data/services/product_service.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Maillots de Football")),
+      appBar: AppBar(title: Text("My Jersey")),
       body: FutureBuilder(
         future: _productService.getProducts(),
         builder: (context, snapshot) {
@@ -41,23 +42,45 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Générer l'URL complète depuis Supabase Storage
+    final imageUrl = supabase.storage
+        .from('products')  // Nom de votre bucket
+        .getPublicUrl(product['images_url'][0]);  // Chemin du fichier stocké
+
     return Card(
       child: Column(
         children: [
           CachedNetworkImage(
-            imageUrl: product['images_url'][0],
+            imageUrl: imageUrl,
             height: 150,
             fit: BoxFit.cover,
+            placeholder: (context, url) => Container(
+              color: Colors.grey[300],
+              height: 150,
+            ),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
-          Text(product['name'], style: TextStyle(fontWeight: FontWeight.bold)),
-          Text(product['sizes'][0]),
-          Text("${product['price']} Fc"),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Text(product['name'],
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(height: 4),
+                Text("Tailles: ${product['sizes'].join(', ')}"),
+                SizedBox(height: 4),
+                Text("${product['price']} Fc",
+                    style: TextStyle(color: Colors.green)),
+              ],
+            ),
+          ),
           IconButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (_) => ProductDetailScreen(product: product)),
+              MaterialPageRoute(
+                  builder: (_) => ProductDetailScreen(product: product)),
             ),
-            icon: Icon(Icons.visibility),
+            icon: Icon(Icons.visibility, color: Colors.blue),
           ),
         ],
       ),
