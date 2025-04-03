@@ -20,7 +20,7 @@ class MyJersey extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/signup': (context) => SignupScreen(),
-        '/home': (context) => Homescreen(),
+        '/home': (context) => HomeScreen(),
       },
     );
   }
