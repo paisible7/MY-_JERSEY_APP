@@ -23,7 +23,7 @@ class CartScreen extends StatelessWidget {
                   leading: CachedNetworkImage(imageUrl: item['image_url']),
                   title: Text(item['custom_text']),
                   subtitle: Text("Police: ${item['font']}"),
-                  trailing: Text("${item['price']} XOF"),
+                  trailing: Text("${item['price']} Fc"),
                   onTap: () => cart.removeFromCart(index),
                 );
               },
@@ -31,7 +31,7 @@ class CartScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.all(16.0),
-            child: Text("Total: ${cart.total} XOF", style: TextStyle(fontSize: 20)),
+            child: Text("Total: ${cart.total} Fc", style: TextStyle(fontSize: 20)),
           ),
           ElevatedButton(
             onPressed: () => _placeOrder(context),

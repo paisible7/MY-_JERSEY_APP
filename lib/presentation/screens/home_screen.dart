@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("My Jersey")),
+      appBar: AppBar(title: Text("My Jersey", style: TextStyle(color: Colors.white)), backgroundColor: Colors.black, ),
       body: FutureBuilder(
         future: _productService.getProducts(),
         builder: (context, snapshot) {

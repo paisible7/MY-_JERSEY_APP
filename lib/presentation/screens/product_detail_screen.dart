@@ -19,7 +19,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> sizes =List<String>.from(widget.product['sizes']);
+    final List<String> sizes = List<String>.from(widget.product['sizes'] as List);
     return Scaffold(
       appBar: AppBar(title: Text(widget.product['name'])),
       body: Column(
